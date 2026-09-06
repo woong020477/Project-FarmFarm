@@ -20,9 +20,9 @@
     canvas.addEventListener('touchmove',event=>event.preventDefault(),{passive:false});
     canvas.addEventListener('contextmenu',event=>event.preventDefault());
     const config={
-      dataUrl:'Build/FarmFarm.data.br',
-      frameworkUrl:'Build/FarmFarm.framework.js.br',
-      codeUrl:'Build/FarmFarm.wasm.br',
+      dataUrl:'Build/game.data.unityweb',
+      frameworkUrl:'Build/game.framework.js.unityweb',
+      codeUrl:'Build/game.wasm.unityweb',
       streamingAssetsUrl:'StreamingAssets',
       companyName: "KangJiwoong",
       productName: "FarmFarm",
@@ -30,7 +30,7 @@
       autoSyncPersistentDataPath:true,
       devicePixelRatio:Math.min(window.devicePixelRatio||1,2)
     };
-    const script=document.createElement('script');script.src='Build/FarmFarm.loader.js';
+    const script=document.createElement('script');script.src='Build/game.loader.js';
     script.onload=()=>createUnityInstance(canvas,config,p=>loading.textContent='농장 준비 중… '+Math.round(p*100)+'%')
       .then(instance=>{window.farmUnity=instance;loading.remove();canvas.focus();})
       .catch(()=>{loading.textContent='게임을 불러오지 못했습니다. 네트워크와 브라우저 설정을 확인해주세요.';});

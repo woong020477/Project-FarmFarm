@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+  <title>FarmFarm</title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;background:#152723;color:#f5eedb;font:16px system-ui;overflow:hidden;overscroll-behavior:none}
+    body{position:fixed;inset:0}
+    #unity-canvas{display:block;width:100%;height:100%;touch-action:none}
+    #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#152723;pointer-events:none}
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <div id="loading" role="status">농장 준비 중…</div>
+  <script>
+    const canvas=document.querySelector('#unity-canvas'),loading=document.querySelector('#loading');
+    // Restrict gesture prevention to the game canvas. Google login and mobile text inputs must remain usable.
+    canvas.addEventListener('touchmove',event=>event.preventDefault(),{passive:false});
+    canvas.addEventListener('contextmenu',event=>event.preventDefault());
+    const config={
+      dataUrl:'Build/FarmFarm.data.br',
+      frameworkUrl:'Build/FarmFarm.framework.js.br',
+      codeUrl:'Build/FarmFarm.wasm.br',
+      streamingAssetsUrl:'StreamingAssets',
+      companyName: "KangJiwoong",
+      productName: "FarmFarm",
+      productVersion: "0.1",
+      autoSyncPersistentDataPath:true,
+      devicePixelRatio:Math.min(window.devicePixelRatio||1,2)
+    };
+    const script=document.createElement('script');script.src='Build/FarmFarm.loader.js';
+    script.onload=()=>createUnityInstance(canvas,config,p=>loading.textContent='농장 준비 중… '+Math.round(p*100)+'%')
+      .then(instance=>{window.farmUnity=instance;loading.remove();canvas.focus();})
+      .catch(()=>{loading.textContent='게임을 불러오지 못했습니다. 네트워크와 브라우저 설정을 확인해주세요.';});
+    script.onerror=()=>loading.textContent='게임 파일을 불러오지 못했습니다.';
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>

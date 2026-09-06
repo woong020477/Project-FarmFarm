@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+  <meta name="theme-color" content="#14251f">
+  <meta name="description" content="FarmFarm — 농장을 가꾸고 도시의 기지를 지키세요.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>FarmFarm</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <header class="toolbar">
+    <span class="brand">FarmFarm</span>
+    <button id="menu-button" type="button" aria-haspopup="dialog">메뉴</button>
+  </header>
+  <main id="play-area" aria-label="FarmFarm 게임">
+    <div id="game-status" role="status">
+      <img src="./logo.png" alt="FarmFarm" width="660" height="220">
+      <p id="status-message">게임을 확인하고 있어요.</p>
+      <button id="retry-button" type="button" hidden>다시 확인</button>
+    </div>
+    <iframe id="game" title="FarmFarm 게임 화면" allow="fullscreen; autoplay; identity-credentials-get" allowfullscreen hidden></iframe>
+  </main>
+  <dialog id="menu-panel" aria-labelledby="menu-title">
+    <div class="dialog-heading"><h1 id="menu-title">FarmFarm</h1><button id="close-menu" type="button" aria-label="메뉴 닫기">닫기</button></div>
+    <nav aria-label="커뮤니티">
+      <a href="https://github.com/woong020477/Project-FarmFarm" target="_blank" rel="noopener noreferrer">GitHub 저장소 <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/woong020477/Project-FarmFarm/wiki" target="_blank" rel="noopener noreferrer">위키 <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/woong020477/Project-FarmFarm/issues" target="_blank" rel="noopener noreferrer">이슈 / 오류 제보 <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button id="install-button" type="button">홈 화면에 추가</button>
+    <p id="install-help" role="status" hidden></p>
+    <p class="note">플레이하려면 인터넷 연결이 필요해요.</p>
+  </dialog>
+</body>
+</html>

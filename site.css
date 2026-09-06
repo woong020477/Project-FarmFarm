@@ -1,0 +1,22 @@
+:root{color-scheme:dark;font:16px/1.5 system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#f5f0df;background:#14251f;--view-height:100dvh}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
+body{position:fixed;inset:0;height:var(--view-height);display:flex;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button{font:inherit;cursor:pointer;border:1px solid #668372;border-radius:6px;background:#263e31;color:inherit;padding:.5rem 1rem;min-height:44px}
+button:hover{background:#36533f}button:disabled{opacity:.6;cursor:default}
+button:focus-visible,a:focus-visible{outline:3px solid #d5e69a;outline-offset:3px}
+[hidden]{display:none!important}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-shrink:0;min-height:48px;padding:2px 10px;border-bottom:1px solid #36513e;background:#14251f}
+.brand{font-weight:800;letter-spacing:.02em}.toolbar button{min-height:40px;padding:.25rem .9rem;font-size:.875rem}
+#play-area{position:relative;flex:1;min-height:0;overflow:hidden;touch-action:none;background:#10211f}
+#game{position:absolute;inset:0;border:0;width:100%;height:100%;display:block;touch-action:none;overscroll-behavior:none;background:#10211f}
+#game-status{height:100%;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#game-status img{width:min(88%,660px);height:auto;max-height:30%;object-fit:contain;image-rendering:pixelated}
+#status-message{max-width:30rem;white-space:pre-line}#retry-button{margin-top:8px}
+dialog{width:min(360px,calc(100% - 28px));max-height:calc(var(--view-height) - 32px);overflow:auto;overscroll-behavior:contain;touch-action:pan-y;margin:auto;padding:20px;border:2px solid #55715e;border-radius:10px;background:#1b3027;color:inherit;box-shadow:0 16px 50px #0008}
+dialog::backdrop{background:#07100ecc}.dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}h1{margin:0;font-size:1.25rem}
+nav{display:grid;gap:8px;margin:20px 0}nav a{display:flex;justify-content:space-between;gap:12px;padding:12px;color:#f5f0df;text-decoration:none;background:#294336;border:1px solid #49624f;border-radius:6px}nav a:hover{background:#36533f}
+#install-button{width:100%;background:#a6c273;color:#14251f;border-color:#b5d581;font-weight:700}
+#install-help{font-size:.9375rem;white-space:pre-line}.note{font-size:.875rem;color:#c0d0c2;margin:18px 0 0}
+@media(max-height:420px){#game-status{padding:10px}#game-status img{max-height:25%}#status-message{margin:8px}}
